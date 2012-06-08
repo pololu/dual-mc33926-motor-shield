@@ -40,4 +40,8 @@ h2. Library Reference
 - @unsigned int getM1CurrentMilliamps()@ := Returns current reading from motor 1 in milliamps.
 - @unsigned int getM2CurrentMilliamps()@ := Returns current reading from motor 2 in milliamps.
 
-- @unsigned char getFault()@ := Returns 1 if there is a fault motor driver fault, 0 if no fault.
+- @unsigned char getFault()@ := Returns 1 if there is a motor driver fault, 0 if no fault.
+
+h2. Version History
+
+* 1.0.0 (2012-06-07): Original release.
