@@ -29,7 +29,8 @@ The demo ramps motor 1 from stopped to full speed forward, ramps down to full sp
 h2. Library Reference
 
 - @DualMC33926MotorShield()@ := Default constructor, selects the default pins as connected by the motor shield.
-- @DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB, unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB, unsigned char nD2, unsigned char nSF)@ := Alternate constructor for shield connections remapped by user. M1PWM and M2PWM cannot be remapped because the library assumes PWM is on timer1.
+- @DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB,@
+@unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB, unsigned char nD2, unsigned char nSF)@ := Alternate constructor for shield connections remapped by user. M1PWM and M2PWM cannot be remapped because the library assumes PWM is on timer1.
 
 - @void init()@ := Initialize pinModes and timer1.
 
