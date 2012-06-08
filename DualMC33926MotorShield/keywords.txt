@@ -1,0 +1,8 @@
+DualMC33926MotorShield	KEYWORD1
+init	KEYWORD2
+setM1Speed	KEYWORD2
+setM2Speed	KEYWORD2
+setSpeeds	KEYWORD2
+getM1CurrentMilliamps	KEYWORD2
+getM2CurrentMilliamps	KEYWORD2
+getFault	KEYWORD2

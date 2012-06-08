@@ -9,7 +9,7 @@ class DualMC33926MotorShield
     // CONSTRUCTORS
     DualMC33926MotorShield(); // Default pin selection.
     DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB,
-						   unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB,
+                           unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB,
                            unsigned char nD2, unsigned char nSF); // User-defined pin selection. 
     
     // PUBLIC METHODS
@@ -24,12 +24,12 @@ class DualMC33926MotorShield
   private:
     unsigned char _nD2;
     unsigned char _M1DIR;
-	unsigned char _M2DIR;
+    unsigned char _M2DIR;
     static const unsigned char _M1PWM = 9;
-	static const unsigned char _M2PWM = 10;
-	unsigned char _nSF;
-	unsigned char _M1FB;
-	unsigned char _M2FB;
+    static const unsigned char _M2PWM = 10;
+    unsigned char _nSF;
+    unsigned char _M1FB;
+    unsigned char _M2FB;
 };
 
 #endif
