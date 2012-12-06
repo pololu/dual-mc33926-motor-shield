@@ -56,8 +56,11 @@ void DualMC33926MotorShield::init()
   ICR1 = 400;
   #endif
 }
-// Set speed for motor 1, speed is a number betwenn -400 and 400
-void DualMC33926MotorShield::setM1Speed(int speed)
+
+//Why redundant code? use this instead of setM1Speed and setM2Speed
+//scusi, i dont know type of OCR1A or OCR1B
+//!!! u need to this fct headerFile !!!
+void DualMC33926MotorShield::setSpeed(unknowntype ocr,unsigned char pwm, unsigned char dir, int speed)
 {
   unsigned char reverse = 0;
   
@@ -69,37 +72,26 @@ void DualMC33926MotorShield::setM1Speed(int speed)
   if (speed > 400)  // Max PWM dutycycle
     speed = 400;
   #if defined(__AVR_ATmega168__)|| defined(__AVR_ATmega328P__)
-  OCR1A = speed;
+  ocr = speed;
   #else
-  analogWrite(_M1PWM,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
+  analogWrite(pwm,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
   #endif
   if (reverse)
-    digitalWrite(_M1DIR,HIGH);
+    digitalWrite(dir,HIGH);
   else
-    digitalWrite(_M1DIR,LOW);
+    digitalWrite(dir,LOW);
+}
+
+// Set speed for motor 1, speed is a number betwenn -400 and 400
+void DualMC33926MotorShield::setM1Speed(int speed)
+{
+  setSpeed(OCR1A, _M1PWM, _M1DIR, speed):
 }
 
 // Set speed for motor 2, speed is a number betwenn -400 and 400
 void DualMC33926MotorShield::setM2Speed(int speed)
 {
-  unsigned char reverse = 0;
-  
-  if (speed < 0)
-  {
-    speed = -speed;  // Make speed a positive quantity
-    reverse = 1;  // Preserve the direction
-  }
-  if (speed > 400)  // Max PWM dutycycle
-    speed = 400;
-  #if defined(__AVR_ATmega168__)|| defined(__AVR_ATmega328P__)
-  OCR1B = speed;
-  #else
-  analogWrite(_M2PWM,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
-  #endif
-  if (reverse)
-    digitalWrite(_M2DIR,HIGH);
-  else
-    digitalWrite(_M2DIR,LOW);
+  setSpeed(OCR1B, _M2PWM, _M2DIR, speed);
 }
 
 // Set speed for motor 1 and 2
