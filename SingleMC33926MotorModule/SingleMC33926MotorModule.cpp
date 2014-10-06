@@ -6,18 +6,20 @@ SingleMC33926MotorModule::SingleMC33926MotorModule()
 {
   //Pin map
   _nD2 = 8;
-  _DIR = 7;
+  _IN1 = 6;
+  _IN2 = 7;
   _nSF = 10;
   _FB = A0; 
 }
 
-SingleMC33926MotorModule::SingleMC33926MotorModule(unsigned char DIR, unsigned char PWM, unsigned char FB,
+SingleMC33926MotorModule::SingleMC33926MotorModule(unsigned char IN1, unsigned char IN2, unsigned char PWM, unsigned char FB,
                                                unsigned char nD2, unsigned char nSF)
 {
   //Pin map
   //PWM cannot be remapped because the library assumes PWM is on timer1
   _nD2 = nD2;
-  _DIR = DIR;
+  _IN1 = IN1;
+  _IN2 = IN2;
   _nSF = nSF;
   _FB = FB; 
 }
@@ -27,7 +29,8 @@ void SingleMC33926MotorModule::init()
 {
 // Define pinMode for the pins and set the frequency for timer1.
 
-  pinMode(_DIR,OUTPUT);
+  pinMode(_IN1,OUTPUT);
+  pinMode(_IN2,OUTPUT);
   pinMode(_PWM,OUTPUT);
   pinMode(_FB,INPUT);
   pinMode(_nD2,OUTPUT);
@@ -68,9 +71,11 @@ void SingleMC33926MotorModule::setSpeed(int speed)
   analogWrite(_PWM,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
   #endif
   if (reverse)
-    digitalWrite(_DIR,HIGH);
+    digitalWrite(_IN1,HIGH);
+    digitalWrite(_IN2,LOW);
   else
-    digitalWrite(_DIR,LOW);
+    digitalWrite(_IN2,HIGH);
+    digitalWrite(_IN1,LOW);
 }
 
 // Return current value in milliamps.

@@ -8,7 +8,7 @@ class SingleMC33926MotorModule
   public:  
     // CONSTRUCTORS
     SingleMC33926MotorModule(); // Default pin selection.
-    SingleMC33926MotorModule(unsigned char DIR, unsigned char PWM, unsigned char FB,
+    SingleMC33926MotorModule(unsigned char IN1, unsigned char IN2, unsigned char PWM, unsigned char FB,
                            unsigned char nD2, unsigned char nSF); // User-defined pin selection. 
     
     // PUBLIC METHODS
@@ -19,7 +19,8 @@ class SingleMC33926MotorModule
     
   private:
     unsigned char _nD2;
-    unsigned char _DIR;
+    unsigned char _IN1;
+    unsigned char _IN2;
     static const unsigned char _PWM = 9;
     unsigned char _nSF;
     unsigned char _FB;
