@@ -128,3 +128,12 @@ unsigned char DualMC33926MotorShield::getFault()
 {
   return !digitalRead(_nSF);
 }
+
+void DualMC33926MotorShield::clearFault()
+{
+  digitalWrite(_nD2, LOW);
+  delay(10);
+  analogWrite(_M1PWM, 0);
+  analogWrite(_M2PWM, 0);
+  digitalWrite(_nD2, HIGH);
+}
