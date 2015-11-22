@@ -6,3 +6,4 @@ setSpeeds	KEYWORD2
 getM1CurrentMilliamps	KEYWORD2
 getM2CurrentMilliamps	KEYWORD2
 getFault	KEYWORD2
+clearFault	KEYWORD2
