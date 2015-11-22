@@ -42,6 +42,7 @@ h2. Library Reference
 - @unsigned int getM2CurrentMilliamps()@ := Returns current reading from motor 2 in milliamps.
 
 - @unsigned char getFault()@ := Returns 1 if there is a motor driver fault, 0 if no fault.
+- @unsigned char clearFault()@ := Resets the controller, clearing any faults
 
 h2. Version History
 

@@ -9,7 +9,7 @@ DualMC33926MotorShield::DualMC33926MotorShield()
   _M1DIR = 7;
   _M2DIR = 8;
   _nSF = 12;
-  _M1FB = A0; 
+  _M1FB = A0;
   _M2FB = A1;
 }
 
@@ -23,7 +23,7 @@ DualMC33926MotorShield::DualMC33926MotorShield(unsigned char M1DIR, unsigned cha
   _M1DIR = M1DIR;
   _M2DIR = M2DIR;
   _nSF = nSF;
-  _M1FB = M1FB; 
+  _M1FB = M1FB;
   _M2FB = M2FB;
 }
 
@@ -60,7 +60,7 @@ void DualMC33926MotorShield::init()
 void DualMC33926MotorShield::setM1Speed(int speed)
 {
   unsigned char reverse = 0;
-  
+
   if (speed < 0)
   {
     speed = -speed;  // Make speed a positive quantity
@@ -83,7 +83,7 @@ void DualMC33926MotorShield::setM1Speed(int speed)
 void DualMC33926MotorShield::setM2Speed(int speed)
 {
   unsigned char reverse = 0;
-  
+
   if (speed < 0)
   {
     speed = -speed;  // Make speed a positive quantity
@@ -127,4 +127,13 @@ unsigned int DualMC33926MotorShield::getM2CurrentMilliamps()
 unsigned char DualMC33926MotorShield::getFault()
 {
   return !digitalRead(_nSF);
+}
+
+void DualMC33926MotorShield::clearFault()
+{
+  digitalWrite(_nD2, LOW);
+  delay(10);
+  analogWrite(_M1PWM, 0);
+  analogWrite(_M2PWM, 0);
+  digitalWrite(_nD2, HIGH);
 }

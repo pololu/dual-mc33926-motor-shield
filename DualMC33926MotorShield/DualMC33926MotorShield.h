@@ -5,22 +5,23 @@
 
 class DualMC33926MotorShield
 {
-  public:  
+  public:
     // CONSTRUCTORS
     DualMC33926MotorShield(); // Default pin selection.
     DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB,
                            unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB,
-                           unsigned char nD2, unsigned char nSF); // User-defined pin selection. 
-    
+                           unsigned char nD2, unsigned char nSF); // User-defined pin selection.
+
     // PUBLIC METHODS
-    void init(); // Initialize TIMER 1, set the PWM to 20kHZ. 
+    void init(); // Initialize TIMER 1, set the PWM to 20kHZ.
     void setM1Speed(int speed); // Set speed for M1.
     void setM2Speed(int speed); // Set speed for M2.
     void setSpeeds(int m1Speed, int m2Speed); // Set speed for both M1 and M2.
-    unsigned int getM1CurrentMilliamps(); // Get current reading for M1. 
+    unsigned int getM1CurrentMilliamps(); // Get current reading for M1.
     unsigned int getM2CurrentMilliamps(); // Get current reading for M2.
     unsigned char getFault(); // Get fault reading.
-    
+    void clearFault(); // continue use after a fault
+
   private:
     unsigned char _nD2;
     unsigned char _M1DIR;
