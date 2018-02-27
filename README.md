@@ -1,7 +1,7 @@
 # Arduino library for the Pololu Dual MC33926 Motor Driver Shield
 
-Version: 2.0.0 <br>
-Release date: 2016-08-19 <br>
+Version: 2.1.0 <br>
+Release date: 2018-02-26 <br>
 [![Build Status](https://travis-ci.org/pololu/dual-mc33926-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-mc33926-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
@@ -96,5 +96,6 @@ detected, a message is sent over serial.
 
 ## Version history
 
+* 2.1.0 (2018-02-26): Added support for 20 kHz PWM on ATmega32U4.
 * 2.0.0 (2016-08-19): Updated library to work with the Arduino Library Manager.
 * 1.0.0 (2012-06-07): Original release.
