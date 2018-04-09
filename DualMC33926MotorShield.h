@@ -1,5 +1,4 @@
-#ifndef DualMC33926MotorShield_h
-#define DualMC33926MotorShield_h
+#pragma once
 
 #include <Arduino.h>
 
@@ -8,8 +7,8 @@ class DualMC33926MotorShield
   public:  
     // CONSTRUCTORS
     DualMC33926MotorShield(); // Default pin selection.
-    DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB,
-                           unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB,
+    DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1FB,
+                           unsigned char M2DIR, unsigned char M2FB,
                            unsigned char nD2, unsigned char nSF); // User-defined pin selection. 
     
     // PUBLIC METHODS
@@ -31,5 +30,3 @@ class DualMC33926MotorShield
     unsigned char _M1FB;
     unsigned char _M2FB;
 };
-
-#endif

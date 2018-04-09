@@ -1,7 +1,7 @@
 # Arduino library for the Pololu Dual MC33926 Motor Driver Shield
 
-Version: 2.0.0 <br>
-Release date: 2016-08-19 <br>
+Version: 3.0.0 <br>
+Release date: 2018-04-09 <br>
 [![Build Status](https://travis-ci.org/pololu/dual-mc33926-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-mc33926-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
@@ -70,12 +70,11 @@ detected, a message is sent over serial.
 
 - `DualMC33926MotorShield()` <br> Default constructor, selects the
   default pins as connected by the motor shield.
-- `DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM,
-  unsigned char M1FB, unsigned char M2DIR, unsigned char M2PWM,
-  unsigned char M2FB, unsigned char nD2, unsigned char nSF)` <br>
-  Alternate constructor for shield connections remapped by user. M1PWM
-  and M2PWM cannot be remapped because the library assumes PWM is on
-  timer1.
+- `DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1FB,
+  unsigned char M2DIR, unsigned char M2FB, unsigned char nD2, unsigned
+  char nSF)` <br> Alternate constructor for shield connections
+  remapped by user. M1PWM and M2PWM cannot be remapped because the
+  library assumes PWM is on timer1.
 - `void init()` <br> Initialize pinModes and timer1.
 - `void setM1Speed(int speed)` <br> Set speed and direction for
   motor 1. Speed should be between -400 and 400. 400 corresponds to
@@ -96,5 +95,6 @@ detected, a message is sent over serial.
 
 ## Version history
 
+* 3.0.0 (2018-04-09): Remove M1PWM and M2PWM from pin-remapping construction.
 * 2.0.0 (2016-08-19): Updated library to work with the Arduino Library Manager.
 * 1.0.0 (2012-06-07): Original release.

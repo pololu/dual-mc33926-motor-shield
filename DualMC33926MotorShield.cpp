@@ -13,8 +13,8 @@ DualMC33926MotorShield::DualMC33926MotorShield()
   _M2FB = A1;
 }
 
-DualMC33926MotorShield::DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1PWM, unsigned char M1FB,
-                                               unsigned char M2DIR, unsigned char M2PWM, unsigned char M2FB,
+DualMC33926MotorShield::DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1FB,
+                                               unsigned char M2DIR, unsigned char M2FB,
                                                unsigned char nD2, unsigned char nSF)
 {
   //Pin map
