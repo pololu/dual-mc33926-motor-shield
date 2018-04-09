@@ -42,7 +42,7 @@ void DualMC33926MotorShield::init()
   digitalWrite(_nD2,HIGH); // default to on
   pinMode(_nSF,INPUT);
 
-  #if defined(__AVR_ATmega168__)|| defined(__AVR_ATmega328P__)
+  #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__)
   // Timer 1 configuration
   // prescaler: clockI/O / 1
   // outputs enabled
@@ -68,7 +68,7 @@ void DualMC33926MotorShield::setM1Speed(int speed)
   }
   if (speed > 400)  // Max PWM dutycycle
     speed = 400;
-  #if defined(__AVR_ATmega168__)|| defined(__AVR_ATmega328P__)
+  #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__)
   OCR1A = speed;
   #else
   analogWrite(_M1PWM,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
@@ -91,7 +91,7 @@ void DualMC33926MotorShield::setM2Speed(int speed)
   }
   if (speed > 400)  // Max PWM dutycycle
     speed = 400;
-  #if defined(__AVR_ATmega168__)|| defined(__AVR_ATmega328P__)
+  #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__)
   OCR1B = speed;
   #else
   analogWrite(_M2PWM,speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
