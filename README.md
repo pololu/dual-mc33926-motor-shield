@@ -95,7 +95,7 @@ detected, a message is sent over serial.
 
 ## Version history
 
-* 3.0.0 (2018-04-09): Remove M1PWM and M2PWM from pin-remapping construction.
+* 3.0.0 (2018-04-09): Remove M1PWM and M2PWM from pin-remapping constructor.
 * 2.1.0 (2018-02-26): Added support for 20 kHz PWM on ATmega32U4.
 * 2.0.0 (2016-08-19): Updated library to work with the Arduino Library Manager.
 * 1.0.0 (2012-06-07): Original release.
