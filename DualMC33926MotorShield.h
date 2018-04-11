@@ -1,15 +1,27 @@
 #pragma once
 
+#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || \
+    defined(__AVR_ATmega328PB__) || defined (__AVR_ATmega32U4__)
+  #define DUALMC33926MOTORSHIELD_TIMER1_AVAILABLE
+#endif
+
 #include <Arduino.h>
 
 class DualMC33926MotorShield
 {
   public:
     // CONSTRUCTORS
-    DualMC33926MotorShield(); // Default pin selection.
-    DualMC33926MotorShield(unsigned char M1DIR, unsigned char M1FB,
-                           unsigned char M2DIR, unsigned char M2FB,
-                           unsigned char nD2, unsigned char nSF); // User-defined pin selection.
+    // Default pin selection.
+    DualMC33926MotorShield();
+    // User-defined pin selection.
+    DualMC33926MotorShield(unsigned char M1DIR,
+                           unsigned char M1PWM,
+                           unsigned char M1FB,
+                           unsigned char M2DIR,
+                           unsigned char M2PWM,
+                           unsigned char M2FB,
+                           unsigned char nD2,
+                           unsigned char nSF);
 
     // PUBLIC METHODS
     void init(); // Initialize TIMER 1, set the PWM to 20kHZ.
@@ -24,8 +36,10 @@ class DualMC33926MotorShield
     unsigned char _nD2;
     unsigned char _M1DIR;
     unsigned char _M2DIR;
-    static const unsigned char _M1PWM = 9;
-    static const unsigned char _M2PWM = 10;
+    unsigned char _M1PWM;
+    static const unsigned char _M1PWM_TIMER1_PIN = 9;
+    unsigned char _M2PWM;
+    static const unsigned char _M2PWM_TIMER1_PIN = 10;
     unsigned char _nSF;
     unsigned char _M1FB;
     unsigned char _M2FB;
