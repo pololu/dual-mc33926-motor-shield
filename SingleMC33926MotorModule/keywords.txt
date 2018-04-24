@@ -1,0 +1,5 @@
+SingleMC33926MotorModule	KEYWORD1
+init	KEYWORD2
+setSpeed	KEYWORD2
+getCurrentMilliamps	KEYWORD2
+getFault	KEYWORD2
