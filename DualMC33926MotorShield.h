@@ -4,6 +4,10 @@
     defined(__AVR_ATmega328PB__) || defined (__AVR_ATmega32U4__)
   #define DUALMC33926MOTORSHIELD_TIMER1_AVAILABLE
 #endif
+#if defined(__AVR_ATmega2560__) 
+  #define DUALVNH5019MOTORSHIELD_TIMER2_AVAILABLE
+#endif
+
 
 #include <Arduino.h>
 
