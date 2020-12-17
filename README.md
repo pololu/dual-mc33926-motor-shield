@@ -2,7 +2,6 @@
 
 Version: 4.0.0 <br>
 Release date: 2018-04-11 <br>
-[![Build Status](https://travis-ci.org/pololu/dual-mc33926-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-mc33926-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
 ## Summary
