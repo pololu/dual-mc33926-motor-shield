@@ -65,6 +65,13 @@ void DualMC33926MotorShield::init()
       ICR1 = 400;
     }
   #endif
+    #ifdef DUALVNH5019MOTORSHIELD_TIMER2_AVAILABLE
+    if (_M1PWM == _M1PWM_TIMER1_PIN && _M2PWM == _M2PWM_TIMER1_PIN)
+    {
+      TCCR2B &= ~ _BV (CS22); // cancel pre-scaler of 64
+      TCCR2B |= _BV (CS20);   // no pre-scaler
+    }
+  #endif
 }
 // Set speed for motor 1, speed is a number betwenn -400 and 400
 void DualMC33926MotorShield::setM1Speed(int speed)
@@ -141,6 +148,7 @@ void DualMC33926MotorShield::setSpeeds(int m1Speed, int m2Speed)
 unsigned int DualMC33926MotorShield::getM1CurrentMilliamps()
 {
   // 5V / 1024 ADC counts / 525 mV per A = 9 mA per count
+  // If using Internal2v56 reference, use: 2V56 / 1024 ADC counts / 525 mV per A = 5 mA per count  
   return analogRead(_M1FB) * 9;
 }
 
@@ -148,6 +156,7 @@ unsigned int DualMC33926MotorShield::getM1CurrentMilliamps()
 unsigned int DualMC33926MotorShield::getM2CurrentMilliamps()
 {
   // 5V / 1024 ADC counts / 525 mV per A = 9 mA per count
+  // If using Internal2v56 reference, use: 2V56 / 1024 ADC counts / 525 mV per A = 5 mA per count  
   return analogRead(_M2FB) * 9;
 }
 
